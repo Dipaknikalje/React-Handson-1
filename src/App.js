@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import ComponentOne from "./Components/ClassComponent"
+import FuncComponent from './Components/FunctionComponent';
 
 function App() {
+  const [funClick,setfunClick] = useState(true)
+  const [comClick,setcomClick] =useState(true)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <div className="App">
+      <h1 className='head'>STYLING USING FUNCTIONAL AND CLASS COMPONENTS </h1>
+      <div className='buttoncontainer'>
+         <button onClick={()=>setfunClick(!funClick)}>CLICK To see styling in Function component</button>
+         <button onClick={()=>setcomClick(!comClick)}>CLICK To see styling in Class component</button>
+      </div>
+    <div className='ComponentContainer'>
+    {funClick && <FuncComponent/>}
+     {comClick && <ComponentOne/>}
     </div>
+  </div>
   );
 }
 
